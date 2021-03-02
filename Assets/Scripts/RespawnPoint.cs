@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RespawnPoint : MonoBehaviour
 {
+    [SerializeField] private Transform _container;
     [SerializeField] private List<GameObject> _respawnObjects;
     [SerializeField] private float _minPositionY;
     [SerializeField] private float _maxPositionY;
@@ -11,7 +12,7 @@ public class RespawnPoint : MonoBehaviour
 
     private void Start()
     {
-        Pool.Initialize(transform);
+        Pool.Initialize(_container);
 
         if (_respawnTime <= 0)
             _respawnTime = 1;
